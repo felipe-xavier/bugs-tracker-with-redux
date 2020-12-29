@@ -10,10 +10,6 @@ function UnresolvedBugs() {
 	useEffect(() => {
 		dispatch(loadBugs());
 	});
-
-	const dispatchToggleResolveBug = (bugId) => {
-		dispatch(toggleResolveBug(bugId));
-	};
 	
 	return (
 		<ul>
@@ -21,7 +17,7 @@ function UnresolvedBugs() {
 				<li key={bug.id}>
 					{bug.description}
 					<button 
-						onClick={() => dispatchToggleResolveBug(bug.id)}
+						onClick={() => dispatch(toggleResolveBug(bug.id))}
 					> Resolve </button>
 				</li>)
 			)}
