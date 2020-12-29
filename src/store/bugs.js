@@ -30,17 +30,17 @@ const slice = createSlice({
     },
 
     bugRemoved: (bugs, action) => {
-      const bugId = bugs.list.findIndex(bug => bug.id == action.payload.id);
+      const bugId = bugs.list.findIndex(bug => bug.id === action.payload.id);
       if (bugId >= 0) bugs.list.splice(bugId, 1);
     },
 
     bugResolved: (bugs, action) => { 
-      const bugId = bugs.list.findIndex(bug => bug.id == action.payload.id);
+      const bugId = bugs.list.findIndex(bug => bug.id === action.payload.id);
       if (bugId >= 0) bugs.list[bugId].resolved = true;
     },
 
     bugAssignedToUser: (bugs, action) => { 
-      const bugId = bugs.list.findIndex(bug => bug.id == action.payload.id);
+      const bugId = bugs.list.findIndex(bug => bug.id === action.payload.id);
       if (bugId >= 0) bugs.list[bugId].userId = action.payload.userId;
     }
   }
