@@ -39,6 +39,11 @@ const slice = createSlice({
       if (bugId >= 0) bugs.list[bugId].resolved = true;
     },
 
+    bugResolveToggled: (bugs, action) => { 
+      const bugId = bugs.list.findIndex(bug => bug.id === action.payload.id);
+      if (bugId >= 0) bugs.list[bugId].resolved = !bugs.list[bugId].resolved;
+    },
+
     bugAssignedToUser: (bugs, action) => { 
       const bugId = bugs.list.findIndex(bug => bug.id === action.payload.id);
       if (bugId >= 0) bugs.list[bugId].userId = action.payload.userId;
@@ -64,6 +69,7 @@ const {
   bugAdded, 
   bugRemoved, 
   bugResolved, 
+  bugResolveToggled,
   bugsReceived,
   bugsRequested,
   bugsRequestFailed,
@@ -104,6 +110,13 @@ export const resolveBug = bugId => apiCallBegan({
   data: {resolved: true},
   method: "patch",
   onSuccess: bugResolved.type,
+});
+
+export const toggleResolveBug = bugId => apiCallBegan({
+  url: url + '/' + bugId,
+  data: {},
+  method: "patch",
+  onSuccess: bugResolveToggled.type,
 });
 
 export const assignBugToUser = (bugId, userId) => apiCallBegan({
