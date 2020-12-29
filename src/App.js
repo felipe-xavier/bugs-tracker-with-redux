@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
 import Bugs from './components/Bugs';
+import UnresolvedBugs from "./components/UnresolvedBugs";
 import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
 
@@ -10,6 +9,8 @@ function App() {
   return (
     <Provider store={store}>
       <Bugs />
+      Unresolved Bugs:
+      <UnresolvedBugs />
     </Provider>
   );
 }
