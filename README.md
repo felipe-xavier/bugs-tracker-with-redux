@@ -1,3 +1,22 @@
+# Before setup
+
+To be able to run the app with the store, you must first run the backend simple api for the bugs.
+
+First go to the backend folder in the root of this project
+
+``` shell
+cd backend/
+```
+
+Install the packages and start the service:
+
+``` shell
+yarn install
+yarn start
+```
+
+Once succeeded, you are off to start the frontend app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
