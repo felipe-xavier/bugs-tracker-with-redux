@@ -4,7 +4,8 @@ import toast from './middlewares/toast';
 import api from "./middlewares/api";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
-export default () => {
+
+const configStore = () => {
   return configureStore({ 
     reducer,
     middleware: [
@@ -15,3 +16,5 @@ export default () => {
     ]
   });
 };
+
+export default configStore;
