@@ -7,9 +7,7 @@ function UnresolvedBugs() {
 	const bugs = useSelector(getUnresolvedBugs);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(loadBugs());
-	});
+	useEffect(() => dispatch(loadBugs()));
 	
 	return (
 		<ul>
